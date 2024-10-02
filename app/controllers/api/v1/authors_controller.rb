@@ -4,6 +4,8 @@ module Api
 
     class AuthorsController < ApplicationController
 
+      before_action :authorize_request, only: [:create, :destroy]
+        
      # Méthode pour créer un auteur
       def create
         @author = Author.new(author_params)

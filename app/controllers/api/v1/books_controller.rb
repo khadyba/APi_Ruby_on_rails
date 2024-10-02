@@ -2,6 +2,8 @@ module Api
     module V1
         class Api::V1::BooksController < ApplicationController
 
+               before_action :authorize_request, only: [:create, :destroy]
+               
                  def create
                       @book = Book.new(book_params)
                       
