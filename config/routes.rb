@@ -12,7 +12,13 @@ Rails.application.routes.draw do
  # Définition des routes pour l'API
  namespace :api do
     namespace :v1 do
-      resources :authors, only: [:index, :show]
+
+      get 'books' => 'books#index_all'
+
+      resources :authors, only: [:index, :show, :create, :destroy] do
+      resources :books, only: [:index, :create, :destroy]
+      end
+
     end    
   end
 end
